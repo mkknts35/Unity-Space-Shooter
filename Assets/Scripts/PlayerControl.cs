@@ -10,15 +10,16 @@ public class Boundary
 
 public class PlayerControl : MonoBehaviour {
 
-    private Rigidbody rb;
+    
     public float speed;
     public float tilt;
     public Boundary boundary;
-
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
+
     private float nextFire;
+    private Rigidbody rb;
 
     private void Start()
     {
