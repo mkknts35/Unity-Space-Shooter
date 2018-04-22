@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponControl : MonoBehaviour {
 
-    private AudioSource audioSource;
+    //private AudioSource audioSource;
 
     public GameObject shot;
     public Transform shotSpawn;
@@ -12,7 +12,7 @@ public class WeaponControl : MonoBehaviour {
     public float delay;
 
 	void Start () {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         InvokeRepeating("Fire", delay, fireRate);
 	}
 

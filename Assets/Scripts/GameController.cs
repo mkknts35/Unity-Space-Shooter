@@ -2,26 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
     public GameObject[] hazards;
+
     public Vector3 spawnValues;
+
     public int hazardCount;
+
     public float spawnWait;
     public float startWait;
     public float waveWait;
 
-    private int score;
     public Text scoreText;
-
     public Text restartText;
     public Text gameOverText;
+    public Camera mainCamera;
+    public Camera secondCamera;
+
+    private int score;
     private bool gameOver;
     private bool restart;
 
     private void Start()
     {
+        mainCamera.enabled = true;
+        secondCamera.enabled = false;
         gameOver = false;
         restart = false;
         gameOverText.text = "";
@@ -37,7 +45,8 @@ public class GameController : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Application.LoadLevel(Application.loadedLevel);
+                //Application.LoadLevel(Application.loadedLevel);
+                SceneManager.LoadScene("Main");
             }
         }
     }
@@ -77,6 +86,8 @@ public class GameController : MonoBehaviour {
 
     public void GameOver()
     {
+        secondCamera.enabled = true;
+        mainCamera.enabled = false;
         gameOver = true;
         gameOverText.text = "Game Over!";
     }
